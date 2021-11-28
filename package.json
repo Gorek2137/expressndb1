@@ -11,7 +11,7 @@
     "nedb": "^1.8.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server02.js"
   },
   "author": "",
   "license": "ISC"
