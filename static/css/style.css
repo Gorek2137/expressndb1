@@ -1,0 +1,33 @@
+.blue {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: lightgrey;
+    color: blue;
+    margin: 10px;
+}
+
+.checkboxform{
+    float: left;
+    
+    
+}
+.outline{
+    border: 1px solid black;
+    width: 100px;
+    text-align: center;
+}
+.susform{
+    text-align: center;
+    width: 210px;
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+
+input{
+    order: 2;
+}
+
+th, td{
+    border: 1px solid black;
+}

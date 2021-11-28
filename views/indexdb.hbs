@@ -1,0 +1,111 @@
+zapis i odczyt danych nedb
+<br>
+<div class="checkboxform">
+    dane pojazdu
+    <form class="susform" action="/handleForm" method="GET">
+        <div class="outline">ubezpieczony:</div>
+        <div class="outline"><input class="outline" type="checkbox" name="ubezpieczenie" id="ubezpieczenie"></div>
+        <div class="outline">benzyna:</div>
+        <div class="outline"><input class="outline" type="checkbox" name="benzyna" id="benzyna"></div>
+        <div class="outline">uszkodzony:</div>
+        <div class="outline"><input class="outline" type="checkbox" name="uszkodzony" id="uszkodzony"></div>
+        <div class="outline">naped 4x4:s</div>
+        <div class="outline"><input class="outline" type="checkbox" name="naped4x4" id="naped4x4"></div>
+        <button class="blue" type="submit">dodaj do bazy</button>
+    </form>
+</div>
+
+<div class="tabledb">
+    <table>
+        <tr>
+            <th>
+            </th>
+            <th>
+                ubazpieczenie
+            </th>
+            <th>
+                paliwo
+            </th>
+            <th>
+                stan
+            </th>
+            <th>
+                naped
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+        {{#each docs}}
+        {{#if edited}}
+            <tr>
+                <form action="/editthisbsplz">
+                    <input hidden type="text" name="impostor" value="{{_id}}">
+                    <td>{{@index}}</td>
+                        <td>
+                    <select name="ubzepieczenie" id="">
+                    <option value="tak">tak</option>
+                    <option value="nie">nie</option>
+                    <option value="brak danych">brak danych</option></select>
+                </td>
+                <td>
+                    <select name="paliwo" id="">
+                    <option value="tak">tak</option>
+                    <option value="nie">nie</option>
+                    <option value="brak danych">brak danych</option></select>
+                </td>
+                <td>
+                    <select name="stan" id="">
+                    <option value="tak">tak</option>
+                    <option value="nie">nie</option>
+                    <option value="brak danych">brak danych</option></select>
+                </td>
+                <td>
+                    <select name="naped" id="">
+                    <option value="tak">tak</option>
+                    <option value="nie">nie</option>
+                    <option value="brak danych">brak danych</option></select>
+                </td>
+                    <td>
+                        <input class="editButton"  type="submit" value="Update">
+                    </td>
+                    <td><button onclick="window.location.href = '/'; return false">Cancel</button></td>
+                </form>
+            </tr>
+            {{else}}
+            <tr>
+                <td>
+                    {{@index}}
+                </td>
+                <td>
+                    {{ubezppieczenie}}
+                </td>
+                <td>
+                    {{paliwo}}
+                </td>
+                <td>
+                    {{stan}}
+                </td>
+                <td>
+                    {{naped}}
+                </td>
+                <td>
+                    <form action="/delete">
+                    <input type="hidden" value="{{_id}}" name="impostor">
+                    <button class="redbutton" type="submit">delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/edit">
+                    <input type="hidden" value="{{_id}}" name="impostor">
+                    <button class="editbutton" type="submit">edit</button>
+                    </form>
+                </td>
+                
+
+                
+            </tr>
+            {{/if}}
+        {{/each}}
+    </table>
+</div>
