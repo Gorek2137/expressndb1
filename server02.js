@@ -2,7 +2,7 @@
 var path = require("path")
 var express = require("express")
 var app = express()
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // bardzo istotna linijka - port zostaje przydzielony przez Heroku
 var hbs = require('express-handlebars');
 app.use(express.json());
 
